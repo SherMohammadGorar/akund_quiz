@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -11,7 +13,7 @@ export class AuthService {
     @InjectRepository(User)
     private userRepo: Repository<User>,
     private jwtService: JwtService,
-  ) {}
+  ) { }
 
   async register(dto: any) {
     const hashedPassword = await bcrypt.hash(dto.password, 10);

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -13,7 +15,7 @@ export class QuestionService {
 
     @InjectRepository(Quiz)
     private quizRepo: Repository<Quiz>,
-  ) {}
+  ) { }
 
   async create(dto: any) {
     const quiz = await this.quizRepo.findOne({

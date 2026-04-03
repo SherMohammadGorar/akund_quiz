@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import {
   Controller,
   Get,
@@ -17,7 +19,7 @@ import { Roles } from '../auth/decorators/roles.decorator';
 @Controller('quiz')
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class QuizController {
-  constructor(private quizService: QuizService) {}
+  constructor(private quizService: QuizService) { }
 
   // Teacher creates quiz
   @Post()
@@ -35,6 +37,7 @@ export class QuizController {
   @Get('my')
   @Roles('teacher')
   myQuizzes(@Req() req: any) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     return this.quizService.findByTeacher(req.user.userId);
   }
 

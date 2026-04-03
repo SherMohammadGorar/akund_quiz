@@ -5,14 +5,14 @@ import { Quiz } from '../quiz/quiz.entity';
 @Entity()
 export class Attempt {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @ManyToOne(() => User, { eager: true })
-  student: User;
+  student: User = new User();
 
   @ManyToOne(() => Quiz, { eager: true })
-  quiz: Quiz;
+  quiz: Quiz = new Quiz();
 
   @Column()
-  score: number;
+  score!: number;
 }

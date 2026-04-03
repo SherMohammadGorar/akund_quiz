@@ -1,3 +1,3 @@
 export class CreateQuizDto {
-  title: string;
+  title!: string;
 }

@@ -15,7 +15,7 @@ import { Roles } from '../auth/decorators/roles.decorator';
 @Controller('users')
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class UsersController {
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService) { }
 
   // Only teacher can view all users
   @Get()

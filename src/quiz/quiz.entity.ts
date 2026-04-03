@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -11,16 +12,16 @@ import { Question } from '../question/question.entity';
 @Entity()
 export class Quiz {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  title: string;
+  title!: string;
 
   @ManyToOne(() => User, { eager: true })
-  teacher: User;
+  teacher!: User;
 
   @OneToMany(() => Question, (q) => q.quiz, {
     cascade: true,
   })
-  questions: Question[];
+  questions!: Question[];
 }

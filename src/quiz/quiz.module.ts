@@ -11,4 +11,4 @@ import { Question } from '../question/question.entity';
   providers: [QuizService],
   controllers: [QuizController],
 })
-export class QuizModule {}
+export class QuizModule { }

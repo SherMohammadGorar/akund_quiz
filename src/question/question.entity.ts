@@ -1,22 +1,23 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 import { Quiz } from '../quiz/quiz.entity';
 
 @Entity()
 export class Question {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column()
-  question: string;
+  question!: string;
 
   @Column('simple-array')
-  options: string[];
+  options!: string[];
 
   @Column()
-  correctAnswer: string;
+  correctAnswer!: string;
 
   @ManyToOne(() => Quiz, (quiz) => quiz.questions, {
     onDelete: 'CASCADE',
   })
-  quiz: Quiz;
+  quiz!: Quiz;
 }

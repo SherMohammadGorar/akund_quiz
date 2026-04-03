@@ -8,7 +8,7 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private userRepo: Repository<User>,
-  ) {}
+  ) { }
 
   create(data: Partial<User>) {
     const user = this.userRepo.create(data);

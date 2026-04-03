@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { Controller, Post, Body, Get, Req, UseGuards } from '@nestjs/common';
 import { AttemptService } from './attempt.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
@@ -7,7 +9,7 @@ import { Roles } from '../auth/decorators/roles.decorator';
 @Controller('attempt')
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class AttemptController {
-  constructor(private attemptService: AttemptService) {}
+  constructor(private attemptService: AttemptService) { }
 
   // Student submits quiz
   @Post()
